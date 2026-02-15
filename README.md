@@ -14,7 +14,7 @@ def add_cart(item, price):
     Fruitmarket.insert(tk.END,f"{item}-${price}")
     Pricetotal()
 #Update total price
-def Pricetotal():
+def total():
     total = sum(carts)
     total_label.config(text=f"Total: ${total}")
 
@@ -28,13 +28,18 @@ def checkout():
         carts.clear()
         Fruitmarket.delete(0,tk.END)
         total()
-        root = tk.Tk()
-        root.title("Fruitmarket")
-        root.geometry("500x400")
-        root.resizable(False,False)
-        title = tk.Label(root, text="Python Store",font=("Arial, 20, "bold"))
-        title.pack(pady=10)
-        total_label = tk.Label(root,text="Total: $0", font=("Arial", 14, "bold"))
-        total_label.pack(pady=5)
-        root.mainloop()
+# Main window
+root = tk.Tk()
+root.title("Fruitmarket")
+root.geometry("500x400")
+root.resizable(False,False)
+# Title
+title = tk.Label(root, text="Python Store",font=("Arial, 20, "bold"))
+title.pack(pady=10)
+
+# Total 
+total_label = tk.Label(root,text="Total: $0", font=("Arial", 14, "bold"))
+total_label.pack(pady=5)
+
+root.mainloop()
 ```
